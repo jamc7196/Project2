@@ -82,17 +82,17 @@ def home():
     return (
         f'<h1> Hi! </h1><br>'
         f'Here are the API routes available <br>'
-        f'<br>For Games API: /api/v1/games <br>'
-        f'For Genre Global Sales API: /api/v1/genre_globalsales <br>'
-        f'For Genre Sales API: /api/v1/genre_sales <br>'
-        f'For Genres API: /api/v1/genres <br>'
-        f'For Global Sales API: /api/v1/global_sales <br>'
-        f'For Platforms API: /api/v1/platforms <br>'
-        f'For Top 3 Genres Per Company API: /api/v1/top3genres_percomp <br>'
-        f'For Top 3 Genres Per Year API: /api/v1/top3genres_peryear <br>'
-        f'For Top 3 Genres Sales Per Company API: /api/v1/top3gensales_percomp <br>'
-        f'For Top 3 Videogames Per Year API: /api/v1/top3vgs_peryear <br>'
-        f'For Total Global Sales Per Company API: /api/v1/totglobsales_percomp <br>'
+        f'<br>For Games API: ->                      /api/v1/games <br>'
+        f'For Genre Global Sales API ->              /api/v1/genre_globalsales <br>'
+        f'For Genre Sales API:       ->              /api/v1/genre_sales <br>'
+        f'For Genres API:            ->              /api/v1/genres <br>'
+        f'For Global Sales API:      ->              /api/v1/global_sales <br>'
+        f'For Platforms API:         ->              /api/v1/platforms <br>'
+        f'For Top 3 Genres Per Company API: ->       /api/v1/top3genres_percomp <br>'
+        f'For Top 3 Genres Per Year API:    ->       /api/v1/top3genres_peryear <br>'
+        f'For Top 3 Genres Sales Per Company API: -> /api/v1/top3gensales_percomp <br>'
+        f'For Top 3 Videogames Per Year API: ->      /api/v1/top3vgs_peryear <br>'
+        f'For Total Global Sales Per Company API: -> /api/v1/totglobsales_percomp <br>'
     )
 
 

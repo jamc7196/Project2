@@ -10,6 +10,43 @@ var games = {
   dataType: "json",
 };
 
+var top3VgmYear = {
+  url: "http://127.0.0.1:5000/api/v1/top3vgs_peryear",
+  type: "GET",
+  dataType: "json",
+};
+
+function onlyUnique(value, index, self) {
+  return self.indexOf(value) === index;
+}
+
+function init() {
+  $.ajax(top3VgmYear).done((top3vdgYr) => {
+    var year = [];
+    top3vdgYr.forEach((element) => {
+      year.push(element.year);
+    });
+
+    var uniqueYear = year.filter(function (item, pos) {
+      return year.indexOf(item) == pos;
+    });
+
+    uniqueYear.forEach((object) =>
+      d3.select("#selDataset").append("option").text(object)
+    );
+
+    var dropdown_value = d3.select("#selDataset").property("value");
+
+    top3vdgYr.forEach((element) => {
+      if (dropdown_value == element.year) {
+        d3.select("#sample-metadata")
+          .append("p")
+          .text(`${element.name} (${element.company})`);
+      }
+    });
+  });
+}
+
 $.ajax(genres).done((genresData) => {
   $.ajax(games).done((gamesData) => {
     // console.log(genresData);
@@ -35,7 +72,23 @@ $.ajax(genres).done((genresData) => {
         Metacritics: metacritics,
       });
     });
-
-    console.log(all);
   });
 });
+
+function change() {
+  $.ajax(top3VgmYear).done((top3vdgYr) => {
+    var dropdown_value = d3.select("#selDataset").property("value");
+    d3.select("#sample-metadata").text("");
+
+    top3vdgYr.forEach((element) => {
+      if (dropdown_value == element.year) {
+        d3.select("#sample-metadata")
+          .append("p")
+          .text(`${element.name} (${element.company})`);
+      }
+    });
+  });
+}
+
+d3.selectAll("#selDataset").on("change", change);
+init();
