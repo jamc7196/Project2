@@ -3,6 +3,7 @@ from flask import Flask, jsonify
 import requests
 import json
 import pymongo
+from config import API_KEY
 
 #Create a connection to MongoDB
 conn = 'mongodb://localhost:27017'
@@ -12,7 +13,7 @@ platformsUrl = "https://rawg-video-games-database.p.rapidapi.com/platforms"
 
 headers = {
     'x-rapidapi-host': "rawg-video-games-database.p.rapidapi.com",
-    'x-rapidapi-key': "ec79643d13msh4903c20a1769647p1f952bjsnf0ece5bb5548"
+    'x-rapidapi-key': API_KEY
 }
 
 app = Flask(__name__)
