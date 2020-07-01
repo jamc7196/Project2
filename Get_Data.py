@@ -2,6 +2,8 @@
 import requests
 import pymongo
 from config import API_KEY
+import os
+import pandas as pd
 
 
 def buildMongoData(results, collection):
@@ -100,3 +102,22 @@ for item in list_games:
     games_url = f"https://rawg-video-games-database.p.rapidapi.com/games/{item}"
     response = requests.request("GET", games_url, headers=headers).json()
     Insert_MongoDB(response, games)
+
+
+# Path where CSV files are stored
+csv_path = os.path.join("Resources", "CSV")
+
+# Get a list of all files inside the path
+files = os.listdir(csv_path)
+
+# Loop files, separate the name and save it as json, and in a mongo collection
+for file in files:
+    input_path = os.path.join("Resources", "CSV", file)
+    name_spl = file.split(".")
+    collection = db[name_spl[0]]
+    output_path = os.path.join("Resources", "JSON", f'{name_spl[0]}.json')
+
+    csv = pd.read_csv(input_path)
+    data = csv.to_dict(orient='records')
+    collection.insert_many(data)
+    csv.to_json(output_path)
