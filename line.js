@@ -106,7 +106,7 @@ function ln(
   }
 }
 
-function Draw_Chart(data, id, n1, n2, n3, n4) {
+function Draw_Chart(data, id) {
   var svg = d3
     .select(id)
     .append("svg")
@@ -140,14 +140,12 @@ function Draw_Chart(data, id, n1, n2, n3, n4) {
   parseData(MicrosoftData, "tot_globalsales");
   parseData(SonyData, "tot_globalsales");
   parseData(NintendoData, "tot_globalsales");
-  // parseData(MicrosoftData, "tot_globalsales");
 
   var xTimeScale = d3
     .scaleTime()
     .domain(d3.extent(MicrosoftData, (d) => d.year))
     .range([0, width]);
 
-  // var yLinearScale = yScale(companyData, chosenYAxis);
   var yLinearScale = d3.scaleLinear().domain([0, numMax]).range([height, 0]);
 
   var bottomAxis = d3.axisBottom(xTimeScale).tickFormat(d3.timeFormat("%Y"));
@@ -506,5 +504,5 @@ function Draw_Chart(data, id, n1, n2, n3, n4) {
 }
 
 $.ajax(totglobsales).done((data) => {
-  Draw_Chart(data, "#Line1", 1, 2, 3, 4);
+  Draw_Chart(data, "#Line1");
 });
