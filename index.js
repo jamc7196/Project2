@@ -16,49 +16,56 @@ var top3VgmYear = {
   dataType: "json",
 };
 
+var top3VgenSalesComp = {
+  url: "http://127.0.0.1:5000/api/v1/top3gensales_percomp",
+  type: "GET",
+  dataType: "json",
+};
+
 function onlyUnique(value, index, self) {
   return self.indexOf(value) === index;
 }
 
 function init() {
   $.ajax(top3VgmYear).done((top3vdgYr) => {
-    var year = [];
-    top3vdgYr.forEach((element) => {
-      year.push(element.year);
-    });
+    $.ajax(top3VgenSalesComp).done((top3genSaComp) => {
+      var year = [];
+      top3vdgYr[0]["data"][0].forEach((element) => {
+        year.push(element.year);
+      });
 
-    var uniqueYear = year.filter(function (item, pos) {
-      return year.indexOf(item) == pos;
-    });
+      var uniqueYear = year.filter(function (item, pos) {
+        return year.indexOf(item) == pos;
+      });
 
-    uniqueYear.forEach((object) =>
-      d3.select("#selDataset").append("option").text(object)
-    );
+      uniqueYear.forEach((object) =>
+        d3.select("#selDataset").append("option").text(object)
+      );
 
-    var dropdown_value = d3.select("#selDataset").property("value");
+      var dropdown_value = d3.select("#selDataset").property("value");
 
-    top3vdgYr.forEach((element) => {
-      if (dropdown_value == element.year) {
-        d3.select("#sample-metadata")
-          .append("p")
-          .text(`${element.name} (${element.company})`);
-      }
+      top3vdgYr[0]["data"][0].forEach((element) => {
+        if (dropdown_value == element.year) {
+          d3.select("#sample-metadata")
+            .append("p")
+            .text(`${element.name} (${element.company})`);
+        }
+      });
+      //Aqui va la lineal
     });
   });
 }
 
 $.ajax(genres).done((genresData) => {
   $.ajax(games).done((gamesData) => {
-    // console.log(genresData);
-    // console.log(gamesData);
     var all = [];
-    genresData.forEach((gen) => {
+    genresData[0]["data"].forEach((gen) => {
       var genre = gen.name;
       var ratings = [];
       var metacritics = [];
       for (let index = 0; index < 3; index++) {
         var gameId = gen.top_games[index].id;
-        gamesData.forEach((gm) => {
+        gamesData[0]["data"].forEach((gm) => {
           if (gameId == gm.id) {
             ratings.push(gm.rating);
             metacritics.push(gm.metacritic);
@@ -72,6 +79,7 @@ $.ajax(genres).done((genresData) => {
         Metacritics: metacritics,
       });
     });
+    console.log(all);
   });
 });
 
@@ -80,7 +88,7 @@ function change() {
     var dropdown_value = d3.select("#selDataset").property("value");
     d3.select("#sample-metadata").text("");
 
-    top3vdgYr.forEach((element) => {
+    top3vdgYr[0]["data"][0].forEach((element) => {
       if (dropdown_value == element.year) {
         d3.select("#sample-metadata")
           .append("p")
