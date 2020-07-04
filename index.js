@@ -79,7 +79,6 @@ $.ajax(genres).done((genresData) => {
         Metacritics: metacritics,
       });
     });
-    console.log(all);
   });
 });
 

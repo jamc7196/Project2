@@ -1,62 +1,82 @@
 /* Student:Jorge Muñozcano Castro */
 /* CSS file for Latitude Website */
 /* Add your styles here */
-		
-		/*footer styling*/
-		footer{
-			margin-top: 50px;
-			bottom: 0;
-			width: 100%;
-			font-size: 10px
-		}	
-		html{
-			background-color: black;
-		}
 
-		
+/*footer styling*/
+footer {
+  margin-top: 50px;
+  bottom: 0;
+  width: 100%;
+  font-size: 10px;
+}
+html {
+  background-color: black;
+}
 
+/*format to the core */
+body {
+  width: 100%;
+  min-height: 100%;
+}
+/*format image size*/
+img {
+  max-width: 90%;
+}
 
-		
-		
-		/*format to the core */
-		body{
-		  width: 100%;
-		  min-height:100%;
-		}
-		/*format image size*/ 
-		img {
-		  max-width: 90%;
-		}
+.background {
+  background-image: url(fondo1.gif);
+}
 
-		.background{
-			background-image: url(fondo1.gif);
-		}
+.jumbotron {
+  background-color: rgba(245, 245, 245, 0.4) !important;
+}
 
-		.jumbotron{
-			background-color: rgba(245, 245, 245, 0.4) !important;
-		}
+.line-active {
+  fill: none;
+  stroke-width: 4px;
+  opacity: 1;
+  stroke: black;
+}
 
+.line-inactive {
+  fill: none;
+  stroke-width: 4px;
+  opacity: 0;
+}
 
+.active {
+  font-weight: bold;
+  fill: #000;
+  transition: fill 0.3s ease-out;
+  text-anchor: middle;
+}
 
+.inactive {
+  font-weight: bold;
+  fill: #494949;
+  transition: fill 0.3s ease-out;
+  text-anchor: middle;
+}
 
+.inactive:hover {
+  fill: #000;
+  cursor: pointer;
+}
 
+svg {
+  margin-left: 150px;
+}
 
+.title {
+  text-anchor: middle;
+  font-weight: bold;
+  fill: #000;
+  font-size: 30px;
+}
 
-
-
-
-
-
-
-
-
-
-
-		
-		
-		
-		
-		
-		
-		
-		
+.lines {
+  fill: none;
+  stroke-width: 4px;
+  opacity: 0;
+  stroke: black;
+}

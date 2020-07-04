@@ -18,43 +18,46 @@
     />
   </head>
   <body>
-   <div class = "container-fluid background">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 jumbotron text-center pb-0">
-          <h1>PCLJ Consultancy Group</h1>
-          <p>
-            Interactive Dashboard
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-2">
-          <div class="well">
-            <h5>Year</h5>
-            <select
-              id="selDataset"
-              onchange="optionChanged(this.value)"
-            ></select>
+    <div class="container-fluid background">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 jumbotron text-center pb-0">
+            <h1>PCLJ Consultancy Group</h1>
+            <p>
+              Interactive Dashboard
+            </p>
           </div>
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">TOP 3 VIDEOGAMES</h3>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="well">
+              <h5>Year</h5>
+              <select
+                id="selDataset"
+                onchange="optionChanged(this.value)"
+              ></select>
             </div>
-            <div id="sample-metadata" class="panel-body"></div>
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">TOP 3 VIDEOGAMES</h3>
+              </div>
+              <div id="sample-metadata" class="panel-body"></div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div id="prueba"></div>
+          </div>
+          <div class="col-md-5">
+            <div id="pieplot"></div>
           </div>
         </div>
-        <div class="col-md-5">
-          <div id="prueba"></div>
-        </div>
-        <div class="col-md-5">
-          <div id="pieplot"></div>
-        </div>
       </div>
-   </div> 
       <div class="row">
         <div class="col-md-12">
-          <div id="Line">Vidogame Industry Sale Performance 2001-2016</div>
+          <!-- <div id="Line"></div> -->
+          <div id="Line1">
+            <h2>Vidogame Industry Sale Performance 2001-2016</h2>
+          </div>
         </div>
       </div>
     </div>
@@ -62,9 +65,13 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="index.js"></script>
+<<<<<<< HEAD
     <footer class="footer">
       &copy; Students: Cuitalhuac Maldonado, Luis Vazques, Pedro Lopez, Jorge
       Alberto Muñozcano Castro Project2: Videogaming Research
     </footer>
+=======
+    <script src="line.js"></script>
+>>>>>>> d998b302bdf55b6004e5553b4c87db5b3b8a3552
   </body>
 </html>
