@@ -1,5 +1,7 @@
 # Project2
 Data-Vizualization-StoryTelling
+To vizualize dashboard please enter to the next herokaupp link
+https://pclj-videogames.herokuapp.com/
 
 Cuihitlac Maldonado, Luis Vázquez, Pedro López  & Jorge Muñozcano
 Storytelling: PCLJ Consultancy Group
